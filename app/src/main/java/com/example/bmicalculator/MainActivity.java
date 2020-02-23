@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     TextView high;
     TextView weight;
     TextView bmi;
+    TextView description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         high = findViewById(R.id.high);
         weight = findViewById(R.id.weight);
         bmi = findViewById(R.id.bmi);
+        description = findViewById(R.id.description);
 
         calcuate.setOnClickListener(new View.OnClickListener (){
             public void onClick(View v) {
@@ -52,9 +54,24 @@ public class MainActivity extends AppCompatActivity {
                     });
                     alert.show();
                 } else {
-                    Float bmiValue = Float.parseFloat(weightValue) / (Float.parseFloat(highValue)*Float.parseFloat(highValue));
-                    String bmiText = Float.toString(bmiValue);
+                    Double bmiValue = Double.parseDouble(weightValue) / (Double.parseDouble(highValue)*Double.parseDouble(highValue));
+                    Double roundBmiValue = Double.valueOf(Math.round(bmiValue*100))/100;
+                    String bmiText = Double.toString(roundBmiValue);
                     bmi.setText(bmiText);
+                    String descriptionText = "";
+                    if(bmiValue < 18.5){
+                        descriptionText = "Niedowaga";
+                    }
+                    else if(bmiValue >= 18.5 && bmiValue < 25){
+                        descriptionText = "W normie";
+                    }
+                    else if(bmiValue >= 25 && bmiValue < 30){
+                        descriptionText = "Nadwaga";
+                    }
+                    else if(bmiValue >= 30){
+                        descriptionText = "Otyłość";
+                    }
+                    description.setText(descriptionText);
                 }
             }
         });
