@@ -12,7 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Button calcuate;
+    Button calculate;
+    Button back;
     TextView high;
     TextView weight;
     TextView bmi;
@@ -25,13 +26,20 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        calcuate = findViewById(R.id.calculate);
+        calculate = findViewById(R.id.calculate);
+        back = findViewById(R.id.bmi_back);
 
-
-        calcuate.setOnClickListener(new View.OnClickListener (){
+        calculate.setOnClickListener(new View.OnClickListener (){
             public void onClick(View v) {
                 double value = calculate();
                 showResult(value);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -49,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (highValue.isEmpty() || weightValue.isEmpty()) {
             alert.setTitle("Msg:");
-            alert.setMessage("Należy podać wartość wiek i wzrost!");
+            alert.setMessage("Należy podać wartość waga i wzrost!");
             alert.setButton(AlertDialog.BUTTON_NEGATIVE, "ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int witch) {

@@ -1,14 +1,23 @@
 <resources>
-    <string name="app_name">Bmi Calculator</string>
+    <string name="app_name">My App</string>
+    <string name="bmi_calc">Bmi Kalkultor</string>
+    <string name="calorie_calc">Kalkultor kalorii</string>>
+    <string name="covid19_diet">Dieta na Coronawirusa</string>>
     <string name="action_settings">Settings</string>
     <string name="weight_description">Waga:</string>
     <string name="high__description">Wzrost:</string>
+    <string name="age_description">Wiek:</string>
+    <string name="gender_description">Płeć:</string>>
     <string name="weight">waga</string>
     <string name="high">wzrost</string>
+    <string name="age">wiek</string>
     <string name="bmi_value">Wartość BMI:</string>
+    <string name="calories_val">Zapotrzebwanie organizu na energię [kcal]:</string>
+    <string name="calories">kcal</string>>
     <string name="bmi">BMI</string>
     <string name="descripton">Opis</string>
     <string name="calculate">Oblicz</string>
+    <string name="back">Powrót</string>
     <string name="title_activity_start">StartActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -20,4 +29,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_calorie_calc">CalorieCalcActivity</string>
     <string name="title_activity_covid19_diet">Covid19DietActivity</string>
+    <string name="image1">my_image</string>
+    <string name="male">mężczyzna</string>
+    <string name="female">kobieta</string>
 </resources>
