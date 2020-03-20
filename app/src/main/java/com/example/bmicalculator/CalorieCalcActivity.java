@@ -2,17 +2,13 @@ package com.example.bmicalculator;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import static android.os.Build.VERSION_CODES.M;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CalorieCalcActivity extends AppCompatActivity {
 
@@ -21,8 +17,7 @@ public class CalorieCalcActivity extends AppCompatActivity {
     TextView high;
     TextView weight;
     TextView age;
-    CheckBox male;
-    CheckBox female;
+    RadioGroup genderGroup;
     TextView kCal;
 
     @Override
@@ -53,19 +48,17 @@ public class CalorieCalcActivity extends AppCompatActivity {
         high = findViewById(R.id.calories_high);
         weight = findViewById(R.id.calories_weight);
         age = findViewById(R.id.calories_age);
-        male = findViewById(R.id.checkBoxMale);
-        female = findViewById(R.id.checkBoxFemale);
 
         final String highValue = high.getText().toString();
         final String weightValue = weight.getText().toString();
         final String ageValue = age.getText().toString();
-        final boolean isMale = male.isChecked();
-        final boolean isFemale = female.isChecked();
+        genderGroup =  findViewById(R.id.gender);
+        int gender = genderGroup.getCheckedRadioButtonId();
 
         double kCalcValue = 0;
         AlertDialog alert = new AlertDialog.Builder(CalorieCalcActivity.this).create();
 
-        if (highValue.isEmpty() || weightValue.isEmpty() || ageValue.isEmpty()) {
+        if (highValue.isEmpty() || weightValue.isEmpty() || ageValue.isEmpty() || gender == -1) {
             alert.setTitle("Msg:");
             alert.setMessage("Należy podać wartości waga, wzrost, wiek i zaznaczyć płeć");
             alert.setButton(AlertDialog.BUTTON_NEGATIVE, "ok", new DialogInterface.OnClickListener() {
@@ -77,10 +70,10 @@ public class CalorieCalcActivity extends AppCompatActivity {
             alert.show();
         }
         else {
-            if (isMale) {
+            if (gender == R.id.buttonMale) {
                 kCalcValue = 66.47 + 13.7 * Double.parseDouble(weightValue) + 5.0 * Double.parseDouble(highValue) - 6.76 * Double.parseDouble(ageValue);
             }
-            else if (isFemale) {
+            else if (gender == R.id.buttonFemale) {
                 kCalcValue = 665.1 + 9.567*Double.parseDouble(weightValue) + 1.85*Double.parseDouble(highValue) - 4.68*Double.parseDouble(ageValue);
             }
         }

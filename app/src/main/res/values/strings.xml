@@ -13,11 +13,15 @@
     <string name="age">wiek</string>
     <string name="bmi_value">Wartość BMI:</string>
     <string name="calories_val">Zapotrzebwanie organizu na energię [kcal]:</string>
+    <string name="diet_info">Do wskazania dety dla Ciebie potrzebne jest twoje BMI.</string>
     <string name="calories">kcal</string>>
     <string name="bmi">BMI</string>
+    <string name="your_diet">Twoja dieta</string>>
     <string name="descripton">Opis</string>
     <string name="calculate">Oblicz</string>
     <string name="back">Powrót</string>
+    <string name="calculate_diet">Sprawdź dietę dla Ciebie</string>>
+    <string name="bmi_now">Sprawdź swoje BMI</string>>
     <string name="title_activity_start">StartActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
