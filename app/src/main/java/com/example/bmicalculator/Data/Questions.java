@@ -1,4 +1,4 @@
-package com.example.bmicalculator;
+package com.example.bmicalculator.Data;
 
 public class Questions {
 

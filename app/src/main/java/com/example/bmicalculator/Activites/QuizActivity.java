@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.bmicalculator.Questions;
+import com.example.bmicalculator.Data.Questions;
 import com.example.bmicalculator.R;
 
 import java.util.Random;

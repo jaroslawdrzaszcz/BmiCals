@@ -46,4 +46,7 @@
     <string name="answer1">Answer 1</string>
     <string name="score">Score</string>
     <string name="question">Question</string>
+    <string name="poland">Poland</string>
+    <string name="china">China</string>
+    <string name="italy">Italy</string>
 </resources>

@@ -19,9 +19,38 @@
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/charts_line"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="350dp"
         android:layout_marginTop="60dp"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/poland"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="420dp"
+        android:text="@string/poland"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/china"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:text="@string/china"
+        app:layout_constraintStart_toEndOf="@+id/poland"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/italy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:text="@string/italy"
+        app:layout_constraintStart_toEndOf="@+id/china"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

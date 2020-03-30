@@ -1,48 +1,57 @@
 package com.example.bmicalculator.Activites;
 
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
+import com.example.bmicalculator.Data.ChartData;
 import com.example.bmicalculator.R;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class ChartsActivity extends AppCompatActivity {
-    Button back;
-    String data = "/home/jaro/AndroidStudioProjects/BmiCalculator/app/src/main/res/values/covid-19_data.json";
-    JSONObject JsonData = null;
-    String[] axisData = {"Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept",
-            "Oct", "Nov", "Dec"};
-    float[] yAxisData = {50, 20, 15, 30, 20, 60, 15, 40, 45, 10, 90, 18};
+    Button back, poland, china, italy;
+    ChartData chartData = new ChartData();
 
-//    try {
-//        JsonData = new JSONObject(data);
-//        prin
-//    } catch (JSONException e) {
-//        e.printStackTrace();
-//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charts);
         back = findViewById(R.id.charts_back);
+        poland = findViewById(R.id.poland);
+        china = findViewById(R.id.china);
+        italy = findViewById(R.id.italy);
 
-        setupLineChart();
+        poland.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String country = (String) poland.getText();
+                setupLineChart(country);            }
+        });
 
+        china.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String country = (String) china.getText();
+                setupLineChart(country);            }
+        });
+
+
+        italy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String country = (String) italy.getText();
+                setupLineChart(country);            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,41 +60,66 @@ public class ChartsActivity extends AppCompatActivity {
         });
     }
 
-    private void setupLineChart() {
+    private void setupLineChart(String country) {
         LineChart lineChart = findViewById(R.id.charts_line);
+        Description description = new Description();
+        description.setText("Covid-19 days Data");
+        lineChart.setDescription(description);
+        int [][] data = new int[0][];
 
-        ArrayList<Entry> entryArrayList = new ArrayList<>();
-
-        for (int i = 0; i < yAxisData.length; i++ ){
-            entryArrayList.add(new Entry(i, yAxisData[i], axisData[i]));
+        if(country.equals("Poland")){
+            data = chartData.polandData();
+        }
+        if(country.equals("Italy")){
+            data = chartData.italyData();
+        }
+        if(country.equals("China")){
+            data = chartData.chinaData();
         }
 
-        LineDataSet lineDataSet = new LineDataSet(entryArrayList, "This is y bill");
-        lineDataSet.setLineWidth(5f);
-        lineDataSet.setColor(Color.GRAY);
-        lineDataSet.setCircleColor(R.color.colorPrimary);
-        lineDataSet.setHighLightColor(Color.RED);
-        lineDataSet.setDrawValues(false);
-        lineDataSet.setCircleRadius(10f);
-        lineDataSet.setCircleColor(Color.YELLOW);
+        ArrayList<Entry> infectedArrayList = new ArrayList<>();
+        ArrayList<Entry> recoveredArrayList = new ArrayList<>();
+        ArrayList<Entry> deathArrayList = new ArrayList<>();
 
-        //to make the smooth line as the graph is adrapt change so smooth curve
-        lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-        //to enable the cubic density : if 1 then it will be sharp curve
-        lineDataSet.setCubicIntensity(0.2f);
+        for (int i = 0; i < data[0].length; i++ ){
+            infectedArrayList.add(new Entry(i, data[0][i]));
+            recoveredArrayList.add(new Entry(i, data[1][i]));
+            deathArrayList.add(new Entry(i, data[2][i]));
+        }
 
-        //to remove the cricle from the graph
-        lineDataSet.setDrawCircles(false);
+        LineDataSet infectedLineDataSet = new LineDataSet(infectedArrayList, "Infected");
+        LineDataSet recoveredLineDataSet = new LineDataSet(recoveredArrayList, "Recovered");
+        LineDataSet deathLineDataSet = new LineDataSet(deathArrayList, "Death");
+
+        infectedLineDataSet.setLineWidth(5f);
+        infectedLineDataSet.setColor(Color.RED);
+        infectedLineDataSet.setCircleColor(R.color.colorPrimary);
+        infectedLineDataSet.setHighLightColor(Color.RED);
+        infectedLineDataSet.setDrawValues(true);
+
+        recoveredLineDataSet.setLineWidth(5f);
+        recoveredLineDataSet.setColor(Color.GREEN);
+        recoveredLineDataSet.setCircleColor(R.color.colorPrimary);
+        recoveredLineDataSet.setHighLightColor(Color.RED);
+        recoveredLineDataSet.setDrawValues(true);
+
+        deathLineDataSet.setLineWidth(5f);
+        deathLineDataSet.setColor(Color.BLACK);
+        deathLineDataSet.setCircleColor(R.color.colorPrimary);
+        deathLineDataSet.setHighLightColor(Color.RED);
+        deathLineDataSet.setDrawValues(true);
 
         ArrayList<ILineDataSet> iLineDataSetArrayList = new ArrayList<>();
-        iLineDataSetArrayList.add(lineDataSet);
+        iLineDataSetArrayList.add(infectedLineDataSet);
+        iLineDataSetArrayList.add(recoveredLineDataSet);
+        iLineDataSetArrayList.add(deathLineDataSet);
 
         //LineData is the data accord
-        LineData lineData = new LineData(iLineDataSetArrayList);
-        lineData.setValueTextSize(13f);
-        lineData.setValueTextColor(Color.BLACK);
+        LineData infectedLineData = new LineData(iLineDataSetArrayList);
+        infectedLineData.setValueTextSize(13f);
+        infectedLineData.setValueTextColor(Color.BLACK);
 
-        lineChart.setData(lineData);
+        lineChart.setData(infectedLineData);
         lineChart.invalidate();
     }
 }
