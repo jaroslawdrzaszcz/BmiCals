@@ -52,6 +52,7 @@ public class ChartsActivity extends AppCompatActivity {
                 String country = (String) italy.getText();
                 setupLineChart(country);            }
         });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

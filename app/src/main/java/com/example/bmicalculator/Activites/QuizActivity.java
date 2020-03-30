@@ -23,6 +23,8 @@ public class QuizActivity extends AppCompatActivity {
 
     private Questions mQuestions = new Questions();
     private String mAnswer;
+    private int counter = 0;
+    private int mFails = 0;
     private int mScore = 0;
     private int mQuestionsLenght = mQuestions.mQuestions.length;
 
@@ -43,7 +45,7 @@ public class QuizActivity extends AppCompatActivity {
         question = findViewById(R.id.question);
 
         updateQuestion(r.nextInt(mQuestionsLenght));
-        score.setText(String.format("Score: %d", mScore));
+        score.setText(String.format("Correct: %d, Fails: %d", mScore, mFails));
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,12 +84,17 @@ public class QuizActivity extends AppCompatActivity {
 
     @SuppressLint("DefaultLocale")
     private void play(Button button){
-        if(button.getText() == mAnswer){
+        counter++;
+        if (button.getText() == mAnswer) {
             mScore++;
-            score.setText(String.format("Score: %d", mScore));
+            score.setText(String.format("Correct: %d, Fails: %d", mScore, mFails));
+            updateQuestion(r.nextInt(mQuestionsLenght));
+        } else {
+            mFails++;
+            score.setText(String.format("Correct: %d, Fails: %d", mScore, mFails));
             updateQuestion(r.nextInt(mQuestionsLenght));
         }
-        else {
+        if (counter > 9){
             gameOver();
         }
     }
@@ -104,7 +111,7 @@ public class QuizActivity extends AppCompatActivity {
     private void gameOver(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(QuizActivity.this);
         alertDialogBuilder
-                .setMessage("Game over, your score is " + mScore + " points." )
+                .setMessage("Game over, you answer correct on" + mScore + " questions an fail on " + mFails + " questions.")
                 .setCancelable(false)
                 .setPositiveButton("New game",
                         new DialogInterface.OnClickListener() {
