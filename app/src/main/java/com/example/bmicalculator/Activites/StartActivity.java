@@ -1,4 +1,4 @@
-package com.example.bmicalculator;
+package com.example.bmicalculator.Activites;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.bmicalculator.R;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -46,6 +48,20 @@ public class StartActivity extends AppCompatActivity {
                 lauchCovidDietActivity();
             }
         });
+
+        covid19QuizButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lauchCovidQuizActivity();
+            }
+        });
+
+        covid19chartsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lauchCovidChartsActivity();
+            }
+        });
     }
 
     private void lauchBmiActivity() {
@@ -55,6 +71,16 @@ public class StartActivity extends AppCompatActivity {
 
     private void lauchCaloriesActivity() {
         Intent intent = new Intent(this, CalorieCalcActivity.class);
+        startActivity(intent);
+    }
+
+    private void lauchCovidQuizActivity() {
+        Intent intent = new Intent(this, QuizActivity.class);
+        startActivity(intent);
+    }
+
+    private void lauchCovidChartsActivity() {
+        Intent intent = new Intent(this, ChartsActivity.class);
         startActivity(intent);
     }
 

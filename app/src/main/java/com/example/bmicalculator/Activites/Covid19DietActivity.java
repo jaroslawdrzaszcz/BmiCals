@@ -1,4 +1,4 @@
-package com.example.bmicalculator;
+package com.example.bmicalculator.Activites;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.bmicalculator.R;
 
 public class Covid19DietActivity extends AppCompatActivity {
 

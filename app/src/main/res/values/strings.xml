@@ -40,4 +40,10 @@
     <string name="female">kobieta</string>
     <string name="title_activity_quiz">QuizActivity</string>
     <string name="title_activity_charts">ChartsActivity</string>
+    <string name="answer4">Answer 4</string>
+    <string name="answer3">"Answer 3 "</string>
+    <string name="answer2">Answer 2</string>
+    <string name="answer1">Answer 1</string>
+    <string name="score">Score</string>
+    <string name="question">Question</string>
 </resources>
