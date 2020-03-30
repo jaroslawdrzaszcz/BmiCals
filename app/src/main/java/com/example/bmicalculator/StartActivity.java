@@ -12,6 +12,8 @@ public class StartActivity extends AppCompatActivity {
     Button bmiCalcButton;
     Button caloriesCalcButton;
     Button covid19DietButton;
+    Button covid19QuizButton;
+    Button covid19chartsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,8 @@ public class StartActivity extends AppCompatActivity {
         bmiCalcButton = findViewById(R.id.bmi_calc);
         caloriesCalcButton = findViewById(R.id.calorie_calc);
         covid19DietButton = findViewById(R.id.covid19_diet);
+        covid19QuizButton = findViewById(R.id.covid19_quiz);
+        covid19chartsButton = findViewById(R.id.covid19_chart);
 
         bmiCalcButton.setOnClickListener(new View.OnClickListener() {
             @Override

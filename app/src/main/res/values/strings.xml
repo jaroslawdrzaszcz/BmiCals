@@ -3,6 +3,8 @@
     <string name="bmi_calc">Bmi Kalkultor</string>
     <string name="calorie_calc">Kalkultor kalorii</string>>
     <string name="covid19_diet">Dieta na Coronawirusa</string>>
+    <string name="covid19_quiz">Quiz o Coronawirusie</string>>
+    <string name="covid19_charts">Sattystyki o Coronawirusie</string>>
     <string name="action_settings">Settings</string>
     <string name="weight_description">Waga:</string>
     <string name="high__description">Wzrost:</string>
@@ -36,4 +38,6 @@
     <string name="image1">my_image</string>
     <string name="male">mężczyzna</string>
     <string name="female">kobieta</string>
+    <string name="title_activity_quiz">QuizActivity</string>
+    <string name="title_activity_charts">ChartsActivity</string>
 </resources>

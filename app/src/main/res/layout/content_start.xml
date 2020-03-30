@@ -34,8 +34,8 @@
         android:id="@+id/bmi_calc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="20dp"
         android:text="@string/bmi_calc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_text" />
@@ -44,8 +44,8 @@
         android:id="@+id/calorie_calc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
         android:text="@string/calorie_calc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bmi_calc" />
@@ -54,18 +54,38 @@
         android:id="@+id/covid19_diet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
         android:text="@string/covid19_diet"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calorie_calc" />
+
+    <Button
+        android:id="@+id/covid19_quiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/covid19_quiz"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/covid19_diet" />
+
+    <Button
+        android:id="@+id/covid19_chart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/covid19_charts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/covid19_quiz" />
 
     <ImageView
         android:id="@+id/imageViewBottom"
         android:layout_width="100dp"
         android:layout_height="74dp"
         android:layout_marginStart="244dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="148dp"
         android:contentDescription="@string/image1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/covid19_diet"
