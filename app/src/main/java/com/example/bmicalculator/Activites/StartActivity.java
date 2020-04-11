@@ -8,6 +8,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bmicalculator.R;
+import com.example.bmicalculator.kotlin.BmiCalc;
+import com.example.bmicalculator.kotlin.CalorieCalcActivity;
+import com.example.bmicalculator.kotlin.ChartsActivity;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -65,7 +68,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void lauchBmiActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, BmiCalc.class);
         startActivity(intent);
     }
 

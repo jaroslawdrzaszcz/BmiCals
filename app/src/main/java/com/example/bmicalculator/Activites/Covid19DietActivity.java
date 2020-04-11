@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bmicalculator.R;
+import com.example.bmicalculator.kotlin.BmiCalc;
 
 public class Covid19DietActivity extends AppCompatActivity {
 
@@ -52,7 +53,7 @@ public class Covid19DietActivity extends AppCompatActivity {
     }
 
     private void lauchBmiActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, BmiCalc.class);
         startActivity(intent);
     }
 
